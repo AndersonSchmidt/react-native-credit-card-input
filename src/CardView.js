@@ -33,7 +33,6 @@ const s = StyleSheet.create({
     color: "rgba(255, 255, 255, 0.5)",
   },
   focused: {
-    fontWeight: "bold",
     color: "rgba(255, 255, 255, 1)",
   },
   number: {
@@ -92,6 +91,7 @@ export default class CardView extends Component {
     imageFront: PropTypes.number,
     imageBack: PropTypes.number,
     customIcons: PropTypes.object,
+    expiryLabel: PropTypes.string,
   };
 
   static defaultProps = {
@@ -102,6 +102,7 @@ export default class CardView extends Component {
       expiry: "••/••",
       cvc: "•••",
     },
+    expiryLabel: 'MONTH/YEAR',
 
     scale: 1,
     fontFamily: Platform.select({ ios: "Courier", android: "monospace" }),
@@ -112,7 +113,7 @@ export default class CardView extends Component {
   render() {
     const { focused,
       brand, name, number, expiry, cvc, customIcons,
-      placeholder, imageFront, imageBack, scale, fontFamily } = this.props;
+      placeholder, imageFront, imageBack, scale, fontFamily, expiryLabel } = this.props;
 
     const Icons = { ...defaultIcons, ...customIcons };
     const isAmex = brand === "american-express";
@@ -145,7 +146,7 @@ export default class CardView extends Component {
                 { !name ? placeholder.name : name.toUpperCase() }
               </Text>
               <Text style={[s.baseText, { fontFamily }, s.expiryLabel, s.placeholder, focused === "expiry" && s.focused]}>
-                MONTH/YEAR
+                {expiryLabel}
               </Text>
               <Text style={[s.baseText, { fontFamily }, s.expiry, !expiry && s.placeholder, focused === "expiry" && s.focused]}>
                 { !expiry ? placeholder.expiry : expiry }
