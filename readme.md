@@ -108,7 +108,7 @@ LiteCreditCardInput does not support `requiresName`, `requiresCVC`, and `require
 |cardImageFront | PropTypes.number | Image for the credit-card view `e.g. require("./card.png")` |
 |cardImageBack | PropTypes.number | Image for the credit-card view `e.g. require("./card.png")` |
 |cardPlaceholders | PropTypes.object | Defaults to <br/>`{ number: "•••• •••• •••• ••••", name: "FULL NAME", expiry: "••/••", cvc: "•••" }` |
-|expiryLabel | Text.propTypes.string | Label for credit-card expiry date |
+|cardExpiryLabel | Text.propTypes.string | Label for credit-card expiry date |
 |labelStyle | Text.propTypes.style | Style for credit-card form's labels |
 |inputStyle | Text.propTypes.style | Style for credit-card form's textInput |
 |inputContainerStyle | ViewPropTypes.style | Style for textInput's container<br/> Defaults to: `{ borderBottomWidth: 1, borderBottomColor: "black" }` |
